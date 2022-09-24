@@ -1,10 +1,13 @@
- function Title(){
+import React from "react";
+
+
+function Title({title, subtitle}){
     return (
-        <div>
-            <h1 className="title">Mario Kingdom</h1>
+        <>
+            <h1 className="title">{title}</h1>
             <br />
-            <h2 className="subtitle">All the latest events in mario kingdom</h2>
-        </div>
+            <h2 className="subtitle">{subtitle}</h2>
+        </>
     )
  }
 
