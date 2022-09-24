@@ -53,12 +53,12 @@ function App () {
             <p>Use the code NINJA10 at the checkout.</p>
             </Modal>*/}
 
-            {showModal && <Modal handleClose = {handleClose}>
+            {showModal && <Modal handleClose = {handleClose} isSalesModal = {true}>
                 <h2> Terms and Conditions</h2>
                 <p>Nunc quis arcu. Funky fresh ante. Away i'm in the shizzle pimpin' izzle lectizzle. Fo shizzle brizzle tortizzle. Crizzle shut the shizzle up shizznit ut check it out consectetizzle boom shackalack. Lorem ipsum dolizzle you son of a bizzle shut the shizzle up, consectetizzle adipiscing elit.</p>
                 <a href='#'>find out more...</a>
             </Modal>}
-            {!showModal && <div><button onClick= {() => setShowModal(true)}>Show Modal</button></div>}
+            {!showModal && <div><button onClick= {() => setShowModal(true)} >Show Modal</button></div>}
     
         </div>
     )

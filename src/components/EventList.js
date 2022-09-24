@@ -1,13 +1,15 @@
 import React from 'react';
+import styles from './EventList.module.css';
+
 
 function EventList({eventList, handleClick}){
     return (
       <div>
         {  eventList.map((event, index) => (
-            <React.Fragment key={event.id}>
+            <div className={styles.card} key={event.id}>
                 <h2>{index} - {event.title}</h2>
                 <button onClick={() => handleClick(event.id)}>delete event</button>
-            </React.Fragment>
+            </div>
         ))}
       </div>
     )
