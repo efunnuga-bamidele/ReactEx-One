@@ -3,17 +3,14 @@ import './App.css';
 import Title from './components/Title';
 import Modal from './components/Modal';
 import EventList from './components/EventList';
+import NewEventForm from './components/NewEventForm';
 
 
 function App () {
     //States and Hooks
     const [showModal, setShowModal] = useState(false);
     const [showEvents, setShowEvents] = useState(true);
-    const [events, setEvents] = useState([
-        {title: "mario's birthday bash", id:1},
-        {title: "browser's live stream", id:2},
-        {title: "race on moo moo farm", id:3}
-    ])
+    const [events, setEvents] = useState([])
     // console.log(showEvents)
     const handleClick = (id) => {
         setEvents((prevEvents) => {
@@ -25,8 +22,13 @@ function App () {
 
     }
     const subTitle = "All the latest events in Marioland";
-    const handleClose = () => {
-        setShowModal(false);
+
+    const addEvents = (events) => {
+        setEvents((prevEvents) => {
+            return [...prevEvents, events]
+        })
+
+        setShowModal(false)
     }
 
     return (
@@ -53,12 +55,17 @@ function App () {
             <p>Use the code NINJA10 at the checkout.</p>
             </Modal>*/}
 
-            {showModal && <Modal handleClose = {handleClose} isSalesModal = {true}>
+            {/*showModal && <Modal handleClose = {handleClose} isSalesModal = {true}>
                 <h2> Terms and Conditions</h2>
                 <p>Nunc quis arcu. Funky fresh ante. Away i'm in the shizzle pimpin' izzle lectizzle. Fo shizzle brizzle tortizzle. Crizzle shut the shizzle up shizznit ut check it out consectetizzle boom shackalack. Lorem ipsum dolizzle you son of a bizzle shut the shizzle up, consectetizzle adipiscing elit.</p>
                 <a href='#'>find out more...</a>
+        </Modal>*/}
+
+            {showModal && <Modal isSalesModal = {true}>
+            <NewEventForm addEvents = {addEvents}/>
             </Modal>}
-            {!showModal && <div><button onClick= {() => setShowModal(true)} >Show Modal</button></div>}
+
+            {!showModal && <div><button onClick= {() => setShowModal(true)} >Add New Event</button></div>}
     
         </div>
     )
